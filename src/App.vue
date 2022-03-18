@@ -8,11 +8,21 @@
 
 <script>
 import NavBar from '@/components/NavBar.vue'
+import axios from 'axios'
 
 export default {
   name: 'App',
   components: {
     NavBar,
+  },
+  mounted() {
+    //http://localhost:8081/Api/V1/cuentaHabientes/1/cuentasBancarias/2
+    let body = {
+      nombre:'Leonardo',
+      apellido:'Salinas',
+      edad:10
+    }
+    let respuesta = axios.get("http://localhost:8081/Api/V1/cuentaHabientes/1/cuentasBancarias/2", body).then(r => console.log(r));
   }
 }
 </script>
